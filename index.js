@@ -18,14 +18,11 @@ fs.readFile('./data/users.json', { encoding: 'utf8' }, (err, data) => {
   });
 });
 
+app.set('views', './views');
+app.set('view engine', 'jade');
+
 app.get('/', (req, res) => {
-  let buffer = '';
-
-  users.forEach((user) => {
-    buffer += `<a href='/${user.username}'>${user.name.full}</a> </br>`;
-  });
-
-  res.send(buffer);
+  res.render('index', { users });
 });
 
 app.get(/big.*/, (req, res, next) => {
