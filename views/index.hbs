@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>User Index</title>
+</head>
+<body>
+  <h1>Handlebars!</h1>
+
+  <ul>
+    {{#each users as |user|}}
+    <li>
+      <a href="/{{user.username}}">{{user.name.full}}</a>
+    </li>
+    {{/each}}
+  </ul>
+
+</body>
+</html>

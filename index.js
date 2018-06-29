@@ -1,8 +1,10 @@
 import express from 'express';
 import fs from 'fs';
+import consolidate from 'consolidate';
 
 const port = 3000;
 const app = express();
+const engines = consolidate;
 
 const users = [];
 fs.readFile('./data/users.json', { encoding: 'utf8' }, (err, data) => {
@@ -18,8 +20,10 @@ fs.readFile('./data/users.json', { encoding: 'utf8' }, (err, data) => {
   });
 });
 
+app.engine('hbs', engines.handlebars);
 app.set('views', './views');
-app.set('view engine', 'jade');
+// app.set('view engine', 'jade');
+app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
   res.render('index', { users });
