@@ -22,8 +22,9 @@ fs.readFile('./data/users.json', { encoding: 'utf8' }, (err, data) => {
 
 app.engine('hbs', engines.handlebars);
 app.set('views', './views');
-// app.set('view engine', 'jade');
 app.set('view engine', 'hbs');
+
+app.use('/profilePics', express.static('images'));
 
 app.get('/', (req, res) => {
   res.render('index', { users });
@@ -36,7 +37,8 @@ app.get(/big.*/, (req, res, next) => {
 
 app.get('/:username', (req, res) => {
   const username = req.params.username;
-  res.send(`Page of ${username}! RRRRR!`);
+  const user = users.find((user) => user.username === username) || {};
+  res.render('user', { user });
 });
 
 app.get('/intro', (req, res) => {

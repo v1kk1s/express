@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>User Index</title>
+  <title>User Page</title>
   <style>
     * {
       font-family: Helvetica, Arial, sans-serif;
@@ -23,15 +23,12 @@
   </style>
 </head>
 <body>
-  <h1>Handlebars!</h1>
+  <h1>Greetings on page of {{user.name.full}}</h1>
 
   <ul>
-    {{#each users as |user|}}
     <div>
-      <img src="/profilePics/{{user.username}}_sm.jpg" alt="{{user.username}} photo icon">
-      <a href="/{{user.username}}">{{user.name.full}}</a>
+      <img src="/profilePics/{{user.username}}_lg.jpg" alt="{{user.username}} photo">
     </div>
-    {{/each}}
   </ul>
 
 </body>
