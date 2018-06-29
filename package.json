@@ -1,0 +1,23 @@
+{
+  "name": "getting-started-express",
+  "version": "1.0.0",
+  "description": "Express study app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "nodemon ./index.js --exec babel-node --ignore client",
+    "start": "npm run babel-node"
+  },
+  "author": "Baheryan Vika",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.0.1",
+    "nodemon": "^1.17.5"
+  }
+}
